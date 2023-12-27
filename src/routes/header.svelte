@@ -1,52 +1,48 @@
 <script lang="ts">
-	import * as config from '$lib/config';
+	import * as config from '$lib/config'
+	import Toggle from './toggle.svelte'
 </script>
-
-
-<nav class="navbar bg-base-100">
-	<div class="navbar-start">
-<!--		<div class="dropdown">-->
-<!--			<div tabindex="0" role="button" class="btn btn-ghost lg:hidden">-->
-<!--				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>-->
-<!--			</div>-->
-<!--			<ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">-->
-<!--				<li>-->
-<!--					<a href="/about">About</a>-->
-<!--				</li>-->
-<!--				<li>-->
-<!--					<a href="/c ontact">Contact</a>-->
-<!--				</li>-->
-<!--				<li>-->
-<!--					<a href="/rss.xml" target="_blank">RSS</a>-->
-<!--				</li>-->
-<!--			</ul>-->
-<!--		</div>-->
-		<a class="title btn btn-ghost text-xl" href="/">
+<header>
+	<nav class="navbar">
+		<div class="navbar-start">
+		  <a class="title btn btn-ghost text-xl hover:text-info" href="/">
 			{config.title}
-		</a>
-	</div>
-	<div class="navbar-center  lg:flex">
-		<ul class="menu menu-horizontal px-1">
-			<li>
-				<a href="/about">About</a>
-			</li>
-			<li>
-				<a href="/c ontact">Contact</a>
-			</li>
-			<li>
-				<a href="/rss.xml" target="_blank">RSS</a>
-			</li>
-		</ul>
-	</div>
-	<div class="navbar-end">
-		<a class="btn">Toggle</a>
-	</div>
-</nav>
+		  </a>
+		</div>
+		<div class="navbar-center lg:flex hidden">
+		  <ul class="menu menu-horizontal p-0">
+			<li><a href="/about" class="hover:bg-base-200">About</a></li>
+			<li><a href="/contact" class="hover:bg-base-200">Contact</a></li>
+			<li><a href="/rss.xml" target="_blank" class="hover:bg-base-200">RSS</a></li>
+		  </ul>
+		</div>
+		<div class="navbar-end">
+		  <Toggle />
+		</div>
+	  </nav>
+	<!-- Large Header Image Section -->
+	<div class="header-image">
+		<!-- svelte-ignore a11y-img-redundant-alt -->
+		<img src="./header.webp" alt="Tech Header Image" class="w-full h-auto" />
+	  </div>
+</header>
 
 
-
-<style>
-	/*nav {*/
-	/*	padding-block: var(--size-7);*/
-	/*}*/
-</style>
+  <style>
+	.navbar {
+		background-color: var(--header-bg);
+	}
+	.header-image img {
+	  width: 100%;
+	  height: auto;
+	  max-height: 400px; /* Adjust as needed */
+	  object-fit: cover;
+	}
+  
+	.navbar {
+	  color: #f0f0f0;
+	}
+  
+	/* Rest of your styles... */
+  </style>
+  

@@ -1,43 +1,37 @@
-import { json } from "@sveltejs/kit";
-import type { Post } from "$lib/types";
+import { json } from '@sveltejs/kit'
+import type { Post } from '$lib/types'
 
 async function getPosts() {
-  let posts: Post[] = [];
+	let posts: Post[] = []
 
-  // patte
-  const paths = import.meta.glob('/src/posts/*.md', {
-    eager: true
-  })
+	// patte
+	const paths = import.meta.glob('/src/posts/*.md', {
+		eager: true
+	})
 
-  // loop over paths and and them to the posts array
-  for (const path in paths) {
+	// loop over paths and and them to the posts array
+	for (const path in paths) {
+		const file = await paths[path]
 
-    const file = await paths[path];
+		const slug = path.split('/').pop()?.split('.')[0] ?? ''
 
-    const slug = path.split('/').pop()?.split('.')[0] ?? '';
+		if (file && typeof file === 'object' && 'metadata' in file && slug) {
+			const metadata = file.metadata as Omit<Post, 'slug'>
 
-    if (file && typeof file === 'object' && 'metadata' in file && slug) {
+			const post = { ...metadata, slug } satisfies Post
+			console.log(post)
+			post.published && posts.push(post)
+		}
+	}
 
-      const metadata = file.metadata as Omit<Post, 'slug'>;
-      
-      const post = { ...metadata, slug } satisfies Post;
-      console.log(post);
-      post.published && posts.push(post);
-    }
-  
-  }
+	posts = posts.sort(
+		(first, second) => new Date(second.date).getTime() - new Date(first.date).getTime()
+	)
 
-  posts = posts.sort((first, second) => 
-    new Date(second.date).getTime() - new Date(first.date).getTime()
-  )
-
-  return posts;
-
-
+	return posts
 }
 
-
 export async function GET(): Promise<Response> {
-  const posts = await getPosts()
-  return json(posts)
+	const posts = await getPosts()
+	return json(posts)
 }

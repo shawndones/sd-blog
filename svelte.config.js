@@ -1,12 +1,35 @@
-import adapter from '@sveltejs/adapter-auto';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import adapter from '@sveltejs/adapter-auto'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 
-import { mdsvex } from 'mdsvex';
+import { escapeSvelte, mdsvex } from 'mdsvex'
+import shiki from 'shiki'
+import remarkUnwrapImages from 'remark-unwrap-images'
+import remarkToc from 'remark-toc'
+import rehypeSlug from 'rehype-slug'
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
-	extensions: ['.md']
-};
+	extensions: ['.md'],
+	layout: {
+		_: './src/mdsvex.svelte' // default layout gets passed to all .md files
+	},
+	highlight: {
+		highlighter: async (code, lang = 'text') => {
+			const highlighter = await shiki.getHighlighter({ theme: 'nord' })
+			const result = escapeSvelte(highlighter.codeToHtml(code, { lang }))
+			return `{@html \`${result}\`}`
+		}
+	},
+	remarkPlugins: [
+		remarkUnwrapImages[
+			(remarkToc,
+			{
+				tight: true
+			})
+		]
+	],
+	rehypePlugins: [rehypeSlug]
+}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -15,6 +38,6 @@ const config = {
 	kit: {
 		adapter: adapter()
 	}
-};
+}
 
-export default config;
+export default config

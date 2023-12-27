@@ -14,6 +14,6 @@ Hey friends 😂
 
 ```ts
 function greate(name: string) {
-	console.log('hey ${name}! ');
+	console.log('hey ${name}! ')
 }
 ```

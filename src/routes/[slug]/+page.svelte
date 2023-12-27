@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { formatDate } from '$lib/utils';
-	export let data;
+	import { formatDate } from '$lib/utils'
+	export let data
 </script>
 
 <!--make a snippet out of this-->
@@ -9,47 +9,61 @@
 <!--</pre>-->
 <svelte:head>
 	<title>{data.meta.title}</title>
-	<meta property="og:type" content="article">
-	<meta property="og:title" content={data.meta.title}>
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content={data.meta.title} />
 </svelte:head>
 
-<article>
-	<hgroup>
-		<h1>{data.meta.title}</h1>
-		<p>Published on {formatDate(data.meta.date)}</p>
+<article class="article-wrapper">
+	<hgroup class="title-group mb-8">
+	  <h1 class="text-5xl font-bold mb-2 text-primary">{data.meta.title}</h1>
+	  <time datetime={data.meta.date} class="block text-secondary italic mb-4">
+		Published on {formatDate(data.meta.date)}
+	  </time>
 	</hgroup>
-
-	<div class="tags">
-		{#each data.meta.categories as category}
-			<a href="/categories/{category}">&num;{category} </a>
-		{/each}
+  
+	<div class="tags mb-6">
+	  {#each data.meta.categories as category}
+		<a href="/categories/{category}" class="tag bg-accent text-white px-4 py-2 rounded-full text-sm font-medium mr-2 mb-2 hover:bg-accent-dark transition-colors duration-300">{category}</a>
+	  {/each}
 	</div>
-
-	<div class="prose">
-		<svelte:component this={data.content} />
+  
+	<div class="content prose">
+	  <svelte:component this={data.content} />
 	</div>
-
-</article>
-
-
-<style lang="scss">
-
-    article {
-			max-inline-size: var(--size-content-3);
-			margin-inline: auto;
-		}
-		h1 {
-				@apply text-4xl uppercase;
-		}
-		h1 + p {
-				@apply text-gray-500 mt-2;
-		}
-		.tags {
-				@apply text-sm;
-				@apply flex gap-3 mt-7;
-		}
-		.tags * {
-			@apply px-2 py-3 rounded-md ;
-		}
-
-</style>
+  </article>
+  
+  <style lang="scss">
+	.article-wrapper {
+	  @apply max-w-5xl mx-auto py-12 px-6;
+	}
+  
+	.title-group {
+	  @apply mb-8;
+	}
+  
+	.tags {
+	  @apply flex flex-wrap gap-2 mb-6;
+	}
+  
+	.tag {
+	  @apply bg-accent text-white px-4 py-1 rounded-full text-sm font-medium no-underline hover:bg-accent-dark transition-colors duration-300;
+	}
+  
+	.content {
+	  @apply text-base leading-relaxed text-gray-700;
+  
+	  h2, h3, h4, h5, h6 {
+		@apply text-primary;
+	  }
+  
+	  p {
+		@apply mb-4;
+	  }
+  
+	  a {
+		@apply text-info underline hover:text-info-dark;
+	  }
+  
+	}
+  </style>
+  
