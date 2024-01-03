@@ -23,7 +23,7 @@
   
 	<div class="tags mb-6">
 	  {#each data.meta.categories as category}
-		<a href="/categories/{category}" class="tag bg-accent text-white px-4 py-2 rounded-full text-sm font-medium mr-2 mb-2 hover:bg-accent-dark transition-colors duration-300">{category}</a>
+		<a href="/categories/{category}" class="badge bg-accent text-white px-4 py-2 rounded-full text-sm font-medium mr-2 mb-2 hover:bg-accent-dark transition-colors duration-300">{category}</a>
 	  {/each}
 	</div>
   

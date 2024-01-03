@@ -1,8 +1,8 @@
 <script lang="ts">
 	import '../app.css'
-	import Header from './header.svelte'
-	import Footer from './footer.svelte'
-	import PageTransition from './transition.svelte'
+	import Header from './Header.svelte'
+	import Footer from './Footer.svelte'
+	import PageTransition from './Transition.svelte'
 
 	import 'open-props/style'
 	import 'open-props/normalize'
@@ -10,7 +10,6 @@
 
 	export let data
 
-	console.log(data.url)
 </script>
 
 <div class="page-container">

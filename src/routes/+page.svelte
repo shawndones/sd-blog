@@ -16,7 +16,7 @@
 -->
   <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {#each data.posts as post}
-      <li class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+      <li class="card shadow-xl hover:shadow-2xl transition-shadow bg-base-100 from-base-200 not-prose outline-base-content/5 relative overflow-hidden bg-gradient-to-b font-sans outline -outline-offset-1 md:flex-row-reverse">
         {#if post.image}
           <figure><img src={post.image} alt="Article Image" class="rounded-t-lg" /></figure>
         {/if}
@@ -28,6 +28,8 @@
             <a href={post.slug} class="btn btn-primary">Read more</a>
           </div>
         </div>
+        <div class="bg-accent -left-1/5 pointer-events-none absolute bottom-[-50%] aspect-square w-3/4 -translate-x-1/2 rounded-full opacity-20 blur-3xl"></div>
+        <div class="bg-primary pointer-events-none absolute bottom-[-120%] left-1/2 aspect-square w-full -translate-x-1/2 rounded-full opacity-20 blur-3xl"></div>
       </li>
     {/each}
   </ul>
@@ -35,6 +37,6 @@
 <style>
 	.card {
 		max-inline-size: none;
-    background-color: var(--card-bg);
+    
 	}
 </style>

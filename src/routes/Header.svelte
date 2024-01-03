@@ -1,6 +1,7 @@
 <script lang="ts">
 	import * as config from '$lib/config'
-	import Toggle from './toggle.svelte'
+	import Toggle from './Toggle.svelte'
+	// import ThemeSelector from './ThemeSelector.svelte';
 </script>
 <header>
 	<nav class="navbar">
@@ -18,6 +19,7 @@
 		</div>
 		<div class="navbar-end">
 		  <Toggle />
+<!--			<ThemeSelector />-->
 		</div>
 	  </nav>
 	<!-- Large Header Image Section -->
