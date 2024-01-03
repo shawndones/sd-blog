@@ -19,7 +19,7 @@ async function getPosts() {
 			const metadata = file.metadata as Omit<Post, 'slug'>
 
 			const post = { ...metadata, slug } satisfies Post
-			console.log(post)
+			// console.log(post)
 			post.published && posts.push(post)
 		}
 	}

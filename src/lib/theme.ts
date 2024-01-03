@@ -12,6 +12,7 @@ export const theme = writable(userTheme ?? 'forest');
 export function toggleTheme() {
     theme.update(currentTheme => {
         const newTheme = currentTheme === 'forest' ? 'digitalSunrise' : 'forest';
+
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('data-theme', newTheme);
         return newTheme;
