@@ -1,56 +1,75 @@
+import plugin from 'tailwindcss/plugin'
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
+			textShadow: {
+				sm: '0 1px 2px var(--tw-shadow-color)',
+				DEFAULT: '0 2px 4px var(--tw-shadow-color)',
+				lg: '0 8px 16px var(--tw-shadow-color)',
+			},
 			colors: {
-				// Define additional color shades for hover and other states if needed
-				'primary-hover': '#e8c29e', // Light Theme Hover
-				'secondary-hover': '#a0d2eb', // Light Theme Hover
-				'accent-hover': '#8ecf89', // Light Theme Hover
-				'info-hover': '#31708e',
-				'primary-dark': '#162a48', // Dark Theme Hover
-				'secondary-dark': '#5c5964', // Dark Theme Hover
-				'accent-dark': '#0794a0', // Dark Theme Hover
-				'info-dark': '#31708e',
+
 			  }
 		}
 	},
-	plugins: [require('daisyui')],
+	plugins: [
+		plugin(function ({ matchUtilities, theme }) {
+			matchUtilities(
+				{
+					'text-shadow': (value) => ({
+						textShadow: value,
+					}),
+				},
+				{ values: theme('textShadow') }
+			)
+		}),
+		require('daisyui'),
+	],
 	daisyui: {
 		themes: [
-			'light',
-			'dark',
-			'cupcake',
-			'bumblebee',
-			'emerald',
-			'corporate',
-			'synthwave',
-			'retro',
-			'cyberpunk',
-			'valentine',
-			'halloween',
-			'garden',
-			'forest',
-			'aqua',
-			'lofi',
-			'pastel',
-			'fantasy',
-			'wireframe',
-			'black',
-			'luxury',
-			'dracula',
-			'cmyk',
-			'autumn',
-			'business',
-			'acid',
-			'lemonade',
-			'night',
-			'coffee',
-			'winter',
-			'dim',
-			'nord',
-			'sunset',
+			{
+				'forest': {
+					'primary': '#1eb854',
+					'primary-focus': '#188c40',
+					'primary-content': '#ffffff',
+
+					'secondary': '#20d55f',
+					'secondary-focus': '#18aa4b',
+					'secondary-content': '#ffffff',
+
+					'accent': '#d99330',
+					'accent-focus': '#b57721',
+					'accent-content': '#ffffff',
+
+					'neutral': '#474747',
+					'neutral-focus': '#2e2e2e',
+					'neutral-content': '#ffffff',
+
+					'base-100': '#171212',
+					'base-200': '#110e0e',
+					'base-300': '#060404',
+					'base-content': '#ffffff',
+
+					'info': '#66c7ff',
+					'success': '#87cf3a',
+					'warning': '#e1d460',
+					'error': '#ff6b6b',
+
+					'--rounded-box': '1rem',
+					'--rounded-btn': '.5rem',
+					'--rounded-badge': '1.9rem',
+
+					'--animation-btn': '.25s',
+					'--animation-input': '.2s',
+
+					'--btn-text-case': 'uppercase',
+					'--navbar-padding': '.5rem',
+					'--border-btn': '1px',
+				},
+			},
 			{
 				'digitalSunrise': { // Light Theme
 					'primary': '#f9d5a7',
@@ -65,33 +84,8 @@ export default {
 					'primary-hover': '#e8c29e',
 					'secondary-hover': '#a0d2eb',
 					'accent-hover': '#8ecf89',
-					'--footer-bg': '#89c2d9',
-					'--header-bg': '#1d3557',
-					'--card-bg': '#f8f9fa',
         
 				  },
-				  'technoForest': { // Dark Theme
-					"primary": "#00b4fc",
-          
- "secondary": "#00c100",
-          
- "accent": "#00ff5f",
-          
- "neutral": "#0d0d0d",
-          
- "base-100": "#32232f",
-          
- "info": "#0098c6",
-          
- "success": "#729300",
-          
- "warning": "#ff9000",
-          
- "error": "#ff2a63",
-					'--footer-bg': '#2a2a2e',
-					'--header-bg': '#1d3557',
-					'--card-bg': '#1e293b',
-				  }
 
 			},
 		]

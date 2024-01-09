@@ -11,7 +11,8 @@ import rehypeSlug from 'rehype-slug'
 const mdsvexOptions = {
 	extensions: ['.md'],
 	layout: {
-		_: './src/mdsvex.svelte' // default layout gets passed to all .md files
+		// _: './src/mdsvex.svelte' // default layout gets passed to all .md files
+		_: './src/mdsvex.svelte',
 	},
 	highlight: {
 		highlighter: async (code, lang = 'text') => {

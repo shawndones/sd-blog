@@ -23,7 +23,7 @@
   
 	<div class="tags mb-6">
 	  {#each data.meta.categories as category}
-		<a href="/categories/{category}" class="badge bg-accent text-white px-4 py-2 rounded-full text-sm font-medium mr-2 mb-2 hover:bg-accent-dark transition-colors duration-300">{category}</a>
+		<a href="/categories/{category}" class="badge bg-accent text-white px-4 py-2 rounded-full text-sm font-medium mr-2 mb- transition-colors duration-300">{category}</a>
 	  {/each}
 	</div>
   
@@ -46,7 +46,7 @@
 	}
   
 	.tag {
-	  @apply bg-accent text-white px-4 py-1 rounded-full text-sm font-medium no-underline hover:bg-accent-dark transition-colors duration-300;
+	  @apply bg-accent text-white px-4 py-1 rounded-full text-sm font-medium no-underline transition-colors duration-300;
 	}
   
 	.content {
@@ -61,7 +61,7 @@
 	  }
   
 	  a {
-		@apply text-info underline hover:text-info-dark;
+		@apply text-info underline;
 	  }
   
 	}
