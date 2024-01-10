@@ -22,9 +22,9 @@
 		<a href={config.instagramUrl}>
 			<Instagram />
 		</a>
-		<a href={config.youtubeUrl}>
-			<Youtube />
-		</a>
+<!--		<a href={config.youtubeUrl}>-->
+<!--			<Youtube />-->
+<!--		</a>-->
 <!--		<a href={config.facebookUrl}>-->
 <!--			<Facebook />-->
 <!--		</a>-->
