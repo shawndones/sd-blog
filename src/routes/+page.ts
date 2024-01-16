@@ -35,49 +35,6 @@ export async function load() {
 			"tags": ["JavaScript", "SVG", "CodePen"],
 			"description": "A simple SVG map highlighter. Hover on a state to highlight the name. Hover a name to highlight the state."
 		},
-		{
-			"img": "./portfolio/bot.webp",
-			"title": "Bottaro Law",
-			"slug": "https://shawndones.com/portfolio/2018/bot/",
-			"tags": ["Wordpress", "PHP", "React", "SCSS", "No SSL"],
-			"description": "Whitelabel Wordpress theme utilizing for Bottaro Law."
-		},
-		{
-			"img": "./portfolio/cja.webp",
-			"title": "cj Advertising",
-			"slug": "https://www.cjadvertising.com/",
-			"tags": ["Wordpress", "PHP", "React", "SCSS", "Outdated"],
-			"description": "Whitelabel Wordpress theme utilizing for cj Advertising."
-		},
-		{
-			"img": "./portfolio/cat.webp",
-			"title": "Cofman Townsley",
-			"slug": "https://www.cofmantownsley.com/",
-			"tags": ["Wordpress", "PHP", "React", "SCSS", "Outdated"],
-			"description": "Whitelabel Wordpress theme utilizing for Cofman Townsley."
-		},
-
-		{
-			"img": "./portfolio/bmb.webp",
-			"title": "Back Off My Bike",
-			"slug": "https://www.backoffmybike.com/",
-			"tags": ["Wordpress", "PHP", "React", "SCSS"],
-			"description": "Whitelabel Wordpress theme utilizing for Back Off My Bike."
-		},
-		{
-			"img": "./portfolio/ddb.webp",
-			"title": "Dudley DeBosier",
-			"slug": "https://www.dudleydebosier.com/",
-			"tags": ["Wordpress", "PHP", "React", "SCSS", "Outdated"],
-			"description": "Whitelabel Wordpress theme utilizing for Dudley DeBosier."
-		},
-		{
-			"img": "./portfolio/saw.webp",
-			"title": "Sawyer Law Firm",
-			"slug": "https://www.sawyerfirm.com/",
-			"tags": ["Wordpress", "PHP", "React", "SCSS", "Outdated"],
-			"description": "Whitelabel Wordpress theme utilizing for Sawyer Law Firm."
-		}
 	]
 
 
